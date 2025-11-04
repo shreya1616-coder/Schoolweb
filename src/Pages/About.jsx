@@ -1,6 +1,8 @@
 import React from "react";
 import MyNavbar from "../Comp/MyNavbar";
 import Footer from "../Comp/Footer";
+import bgImage from "../assets/485038447_1166289191957539_736602796370129272_n.jpg";
+import logo from "../assets/logo.png"; // ✅ Import logo properly
 
 export default function About() {
   return (
@@ -12,23 +14,15 @@ export default function About() {
 
         /* HEADER SECTION */
         .about-header {
-          background: url("src/assets/485668889_1166289231957535_3817913237278706727_n.jpg") center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff7300);
+          background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                      url(${bgImage}) center/cover no-repeat;
           color: white;
           text-align: center;
-          padding: 100px 20px;
-          border-radius: 0 0 ;
+          padding: 220px 20px; /* ✅ Increased height here */
+          border-radius: 0;
           position: relative;
           overflow: hidden;
           box-shadow: 0 6px 20px rgba(255, 136, 0, 0.3);
-          
-        }
-
-        .about-header::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.4);
-          z-index: 0;
         }
 
         .about-header h1, .about-header p {
@@ -37,7 +31,7 @@ export default function About() {
         }
 
         .about-header h1 {
-          font-size: 3rem;
+          font-size: 3.2rem;
           font-weight: 700;
           margin-bottom: 10px;
         }
@@ -140,6 +134,14 @@ export default function About() {
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
+          .about-header {
+            padding: 160px 20px; /* slightly smaller height for mobile */
+          }
+
+          .about-header h1 {
+            font-size: 2.4rem;
+          }
+
           .mission-container {
             flex-direction: column;
             text-align: center;
@@ -159,7 +161,7 @@ export default function About() {
       {/* ✅ Navbar */}
       <MyNavbar />
 
-      {/* ✅ Header with background image */}
+      {/* ✅ Header with larger background image */}
       <header className="about-header">
         <h1>About Us</h1>
         <p>Learn more about Morning Bells Academy – nurturing bright young minds.</p>
@@ -178,15 +180,15 @@ export default function About() {
           </div>
         </section>
 
-        {/* 🏫 Mission Section (with Flex logo + text) */}
+        {/* 🏫 Mission Section */}
         <section className="mission-section">
           <div className="mission-container">
-            {/* Left side — Logo */}
+            {/* Left — Logo */}
             <div className="mission-image">
-              <img src="src/assets/logo.png" alt="Morning Bells Academy Logo" />
+              <img src={logo} alt="Morning Bells Academy Logo" />
             </div>
 
-            {/* Right side — Mission text */}
+            {/* Right — Mission text */}
             <div className="mission-text">
               <h2>Our Mission</h2>
               <p>

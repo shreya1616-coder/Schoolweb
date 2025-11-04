@@ -7,49 +7,33 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// ✅ Image Imports
 import thumb1 from "../assets/506810866_9351219228313433_3556482480371429055_n.jpg";
 import thumb2 from "../assets/506032268_9341543022614387_1231155258513425171_n.jpg";
 import thumb3 from "../assets/45610252_1614060775362689_7168500017039147008_n.jpg";
 import thumb4 from "../assets/486188699_1166289345290857_1682304627507756343_n.jpg";
 import thumb5 from "../assets/503075224_9284850644950292_5887689650100437857_n.jpg";
-import thumb6 from "../assets/506810866_9351219228313433_3556482480371429055_n.jpg";
-import thumb7 from "../assets/506032268_9341543022614387_1231155258513425171_n.jpg";
-import thumb8 from "../assets/45610252_1614060775362689_7168500017039147008_n.jpg";
-import thumb9 from "../assets/486188699_1166289345290857_1682304627507756343_n.jpg";
-import thumb10 from "../assets/503075224_9284850644950292_5887689650100437857_n.jpg";
-import thumb11 from "../assets/506810866_9351219228313433_3556482480371429055_n.jpg";
-import thumb12 from "../assets/506032268_9341543022614387_1231155258513425171_n.jpg";
-import thumb13 from "../assets/45610252_1614060775362689_7168500017039147008_n.jpg";
-import thumb14 from "../assets/486188699_1166289345290857_1682304627507756343_n.jpg";
-import thumb15 from "../assets/503075224_9284850644950292_5887689650100437857_n.jpg";
-import thumb16 from "../assets/506810866_9351219228313433_3556482480371429055_n.jpg";
-import thumb17 from "../assets/506032268_9341543022614387_1231155258513425171_n.jpg";
-import thumb18 from "../assets/45610252_1614060775362689_7168500017039147008_n.jpg";
-import thumb19 from "../assets/486188699_1166289345290857_1682304627507756343_n.jpg";
-import thumb20 from "../assets/503075224_9284850644950292_5887689650100437857_n.jpg";
-import thumb21 from "../assets/45610252_1614060775362689_7168500017039147008_n.jpg";
-import thumb22 from "../assets/486188699_1166289345290857_1682304627507756343_n.jpg";
-import thumb23 from "../assets/503075224_9284850644950292_5887689650100437857_n.jpg";
-import thumb24 from "../assets/506810866_9351219228313433_3556482480371429055_n.jpg";
+import bgImage from "../assets/484943498_1166289181957540_6416239797447386503_n.jpg"; // ✅ background image
 
 function Gallery() {
   const images = [
     thumb1, thumb2, thumb3, thumb4, thumb5,
-    thumb6, thumb7, thumb8, thumb9, thumb10,
-    thumb11, thumb12, thumb13, thumb14, thumb15,
-    thumb16, thumb17, thumb18, thumb19, thumb20,thumb21, thumb22, thumb23, thumb24,
+    thumb1, thumb2, thumb3, thumb4, thumb5,
+    thumb1, thumb2, thumb3, thumb4, thumb5,
+    thumb1, thumb2, thumb3, thumb4, thumb5,
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // ✅ Proper background image reference
+  // ✅ Proper background syntax
   const headerStyle = {
-    backgroundImage: `url(${thumb4})`,
+    backgroundImage: `url(${bgImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
   };
 
-  // Group images (8 per slide)
+  // ✅ Group images (8 per slide)
   const imageGroups = [];
   for (let i = 0; i < images.length; i += 8) {
     imageGroups.push(images.slice(i, i + 8));
@@ -218,16 +202,16 @@ function Gallery() {
         }
       `}</style>
 
-      {/* Navbar */}
+      {/* ✅ Navbar */}
       <MyNavbar />
 
-      {/* Header */}
+      {/* ✅ Header */}
       <header className="gallery-header" style={headerStyle}>
         <h1>Our Gallery</h1>
         <p>Beautiful memories and joyful moments at Morning Bells Academy</p>
       </header>
 
-      {/* Gallery Section */}
+      {/* ✅ Gallery Section */}
       <section className="gallery-section">
         <h2>Explore Our Memories</h2>
         <p>Click the dots below to explore more beautiful photos.</p>
@@ -237,7 +221,7 @@ function Gallery() {
           pagination={{ clickable: true }}
           loop={false}
           allowTouchMove={false}
-          speed={0} // ✅ no animation or auto change
+          speed={0}
         >
           {imageGroups.map((group, index) => (
             <SwiperSlide key={index}>
@@ -258,14 +242,14 @@ function Gallery() {
         </Swiper>
       </section>
 
-      {/* Lightbox */}
+      {/* ✅ Lightbox */}
       {selectedImage && (
         <div className="lightbox" onClick={() => setSelectedImage(null)}>
           <img src={selectedImage} alt="Enlarged" />
         </div>
       )}
 
-      {/* Footer */}
+      {/* ✅ Footer */}
       <Footer />
     </>
   );

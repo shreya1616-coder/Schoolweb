@@ -1,6 +1,7 @@
 import React from "react";
 import MyNavbar from "../Comp/MyNavbar";
 import Footer from "../Comp/Footer";
+import bgImage from "../assets/504359035_9295642877204402_254611619851850626_n.jpg"
 
 export default function ClassesSection() {
   const classesData = [
@@ -62,7 +63,7 @@ export default function ClassesSection() {
 
         /* HEADER */
         .classes-header {
-          background: url("src/assets/504359035_9295642877204402_254611619851850626_n.jpg") center/cover no-repeat, linear-gradient(135deg, #ff9800, #ff7300);
+         background: url(${bgImage}) center/cover no-repeat; linear-gradient(135deg, #ff9800, #ff7300);
           color: white;
           text-align: center;
           padding: 120px 20px;

@@ -1,6 +1,7 @@
 import React from "react";
 import MyNavbar from "../Comp/MyNavbar";
 import Footer from "../Comp/Footer";
+import bgImage from "../assets/484943498_1166289181957540_6416239797447386503_n.jpg"; // ✅ Import background image
 
 export default function Contact() {
   return (
@@ -16,7 +17,7 @@ export default function Contact() {
 
         /* ===== HEADER SECTION ===== */
         .contact-header {
-          background: url("src/assets/484943498_1166289181957540_6416239797447386503_n.jpg") center/cover no-repeat;
+           background: url(${bgImage}) center/cover no-repeat;
           color: white;
           text-align: center;
           padding: 200px 20px; /* Increased height for better background visibility */
